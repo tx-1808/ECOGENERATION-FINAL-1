@@ -63,28 +63,40 @@ header {
 
 .imagemcalcu {
   display: flex;
-  border-radius:12px;
-  margin-top: 150px;
   justify-content: center;
-  gap: 40px; 
-  
+  align-items: center;
+  gap: 40px;
+  margin: 100px 0 0 0;
 }
+
 .imagemcalcu img {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
- 
+  width: 500px; /* Tamanho fixo para as imagens */
+  max-width: 320vw;
+  height: auto;
+  border-radius: 18px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .imagemcalcu img:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
-.calculadora{
+.calculadora,
+.ecoloja {
+  width: 260px;
+  max-width: 90vw;
   border-radius: 18px;
-  width: 45%
-  
+}
+
+@media (max-width: 700px) {
+  .imagemcalcu {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
   
 
-}
+
 .ecoloja{
   border-radius: 18px;
   width: 45%

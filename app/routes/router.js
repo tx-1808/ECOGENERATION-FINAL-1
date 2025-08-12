@@ -1,9 +1,15 @@
-const express = require("express");
-const router = express.Router();
+var express = require("express");
+var router = express.Router();
 
 router.get("/", function (req, res) {
-    res.render("pages/index", {titulo:"Pagina inicial"})
+    res.render("index", {titulo:"Pagina inicial"})
 });
 router.get("/calculadora-tela-inicial", function (req, res) {
-    res.render("pages/calculadora-tela-inicial", {titulo:"tela inicial da calculadora"})
-module.exports = router;});
+    res.render("calculadora-tela-inicial", {titulo:"tela inicial da calculadora"})
+});
+
+router.get("/ecoloja", function (req, res) {
+    res.render("ecoloja", {titulo:"tela inicial da ecoloja"})
+});
+
+module.exports = router;
