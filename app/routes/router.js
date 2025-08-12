@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.render("index"); // Certifique-se de ter o arquivo index.ejs em ./app/views
+router.get("/", function (req, res) {
+    res.render("pages/index", {titulo:"Pagina inicial"})
 });
-
-module.exports = router;
+router.get("/calculadora-tela-inicial", function (req, res) {
+    res.render("pages/calculadora-tela-inicial", {titulo:"tela inicial da calculadora"})
+module.exports = router;});
