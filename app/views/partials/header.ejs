@@ -1,12 +1,37 @@
- <header>
+<link rel="stylesheet" href="/css/header.css" />
 
+<header>
   <figure class="logo-figure">
     <img src="imagens/GENERATION (1).svg" alt="EcoGeneration Logo" class="logo">
     <figcaption class="visually-hidden">EcoGeneration Logo</figcaption>
   </figure>
+
+  <button class="menu-toggle" aria-label="Abrir menu" onclick="document.querySelector('.nav-menu').classList.toggle('open')">
+    &#9776;
+  </button>
+
+  <nav class="nav-menu">
+    <ul>
+      <li><a href="/">Início</a></li>
+      <li><a href="/calculadora-tela-inicial">Calculadora</a></li>
+      <li><a href="/ecoloja">EcoLoja</a></li>
+      <!-- Adicione mais itens se desejar -->
+    </ul>
+  </nav>
 
   <form action="/search" method="get" class="search-form">
     <input type="text" name="q" placeholder="Pesquisar...">
     <button type="submit"> Buscar</button>
   </form>
 </header>
+
+<script>
+  // Fecha o menu ao clicar fora dele (opcional)
+  document.addEventListener('click', function(e) {
+    const menu = document.querySelector('.nav-menu');
+    const toggle = document.querySelector('.menu-toggle');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
