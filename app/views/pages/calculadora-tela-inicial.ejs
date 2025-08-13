@@ -1,21 +1,40 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= titulo %></title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="css/calculadora.css">
 </head>
 
 <body>
   <%- include("../partials/header") %>
 
-  <main>
-    <h1>Calculadora de Energia</h1>
-    <p>Página inicial da calculadora.</p>
+  <main class="eco-main">
+    <section class="eco-header">
+      <button class="eco-voltar" type="button" onclick="window.history.back()" aria-label="Voltar">&lt;</button>
+      <h2 class="eco-header-title">
+        COMO USAR NOSSA <mark class="eco-highlight">CALCULADORA</mark>
+      </h2>
+    </section>
+
+    <section class="eco-desc">
+      <p>
+        Descubra quanto você pode economizar e ter mais autonomia com hábitos mais eficientes e escolhas inteligentes. Responda algumas perguntas rápidas e veja o impacto no seu bolso, dia a dia e no planeta.
+      </p>
+    </section>
+
+    <section class="eco-card">
+      <h3 class="eco-card-title">
+        <strong class="eco">ECO</strong><b class="calculadora">CALCULADORA</b>
+      </h3>
+      <form action="/calculadora/perguntas" method="get">
+        <button class="eco-btn" type="submit">COMEÇAR</button>
+      </form>
+    </section>
+     <%- include("../partials/footer") %>
   </main>
 
-  <%- include("../partials/footer") %>
-</body>
-</html>
+ 
