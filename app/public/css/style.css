@@ -146,15 +146,6 @@ h2 {
   color: #333;
 }
 
-/* Footer */
-footer {
-  background-color: #4CAF50;
-  color: white;
-  text-align: center;
-  padding: 15px 0;
-  margin-top: 40px;
-  font-size: 0.9rem;
-}
 
 /* Acessibilidade: texto escondido mas lido por leitores de tela */
 .visually-hidden {
