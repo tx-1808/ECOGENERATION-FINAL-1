@@ -11,5 +11,8 @@ router.get("/calculadora-tela-inicial", function (req, res) {
 router.get("/ecoloja", function (req, res) {
     res.render("ecoloja", {titulo:"tela inicial da ecoloja"})
 });
+router.get("/entrada", function (req, res) {
+    res.render("entrada", {titulo:"entrada"})
+});
 
 module.exports = router;

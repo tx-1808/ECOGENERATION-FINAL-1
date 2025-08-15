@@ -55,7 +55,7 @@ h2 {
 }
 
 .imagemcalcu img {
-  width: 550px; /* Tamanho fixo para as imagens */
+  width: 700px; /* Tamanho fixo para as imagens */
   max-width: auto;
   height: auto;
   border-radius: 18px;
