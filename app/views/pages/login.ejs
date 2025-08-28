@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    
+    <main>
+        <section aria-labelledby="login-title" class="login-container">
+          <img src="/img/GENERATION (1).svg">
+            <% if (errors.length > 0) { %>
+                <section class="error-container" aria-label="Mensagens de erro">
+                    <% errors.forEach(error => { %>
+                        <p class="error"><%= error.msg %></p>
+                    <% }) %>
+                </section>
+            <% } %>
+            <form action="/login" method="POST" novalidate>
+                <fieldset class="form-group">
+                   
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" value="<%= formData.email || '' %>" required
+                           placeholder="Digite seu e-mail">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required
+                           placeholder="Digite sua senha">
+                </fieldset>
+                <button type="submit">Entrar</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
