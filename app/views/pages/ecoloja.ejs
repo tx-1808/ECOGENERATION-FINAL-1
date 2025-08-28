@@ -1,83 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOGENERATION - Loja</title>
+    <link rel="stylesheet" href="/css/ecoloja.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/style.css">
+ 
+  </head>
+  <body>
+  <%- include("../partials/header") %>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoLoja - EcoGeneration</title>
-  <link rel="stylesheet" href="/css/ecoloja.css.">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/footer.css">
-
-</head>
-
-<body>
-  
-
-<%- include("../partials/header") %>
-
-<p class="eco_loja">
-  <b class="eco">ECO</b><b class="loja">LOJA</b>
-</p>
-<section class="fases">
-
-<img src="imagens/ITENSDEENTRADA.png.png" alt="Imagem 1" class="zoom">
-<img src="imagens/ITENSDEENTRADA.png (3).png" alt="Imagem 2" class="zoom">
-<img src="imagens/ITENSAVANÇADOS.png.png" alt="Imagem 3" class="zoom">
-</section>
-<section aria-labelledby="produtos-destaque">
-  <h2 id="produtos-destaque">Economia de energia</h2>
-
-  <section class="produtos-grid">
-    <article>
-      <img src="imagens/lampadaled.png" alt="Lâmpada LED">
-      <h3>Lâmpada de LED Kit 20 UNI</h3>
-    </article>
-
-    <article>
-      <img src="imagens/Luminariasolarledparede.png" alt="Luminária Solar LED de Parede">
-      <h3>Luminária Solar LED de Parede</h3>
-    </article>
-
-    <article>
-      <img src="imagens/luminariaholofote.png" alt=" Lumiária Holofote">
-      <h3>Luminária Holofote</h3>
-    </article>
-
-    <article>
-      <img src="imagens/kitgeradorsolar.png" alt="Kit Gerador Solar">
-      <h3>Kit Gerador Solar</h3>
-    </article>
-    
-  </section>
-
-  <section aria-labelledby="Autonomia">
-    <h4 id="Autonomia">Autonomia</h4>
-    
-    <section class="produtos-grid">
-      <article>
-        <img src="imagens/powerbankportatil.png" alt="Power Bank Solar">
-        <h3>Power Bank Solar</h3>
-      </article>
-  
-      <article>
-        <img src="imagens/miniusinasolarportatil.png" alt="Mini Usinas Solares com Tomada">
-        <h3>Mini Usinas Solares com Tomada</h3>
-      </article>
-  
-      <article>
-        <img src="imagens/kitenergiasolarportatil.png" alt="Kit Energia Solar Portátil">
-        <h3>Kit Energia Solar Portátil</h3>
-      </article>
-  
-      <article>
-        <img src="imagens/ventiladormovidoaenergia.png" alt="Ventilador Movido por Energia Solar">
-        <h3>Ventilador Movido por Energia Solar</h3>
-      </article>
+  <main class="conteudo">
+    <p class="eco_loja">
+      <b class="eco">ECO</b><b class="loja">LOJA</b>
+    </p>
+    <section class="fases">
+      <img src="imagens/entradaa.svg" alt="Imagem 1" class="zoom">
+      <img src="imagens/INTER.svg" alt="Imagem 2" class="zoom">
+      <img src="imagens/ITENSAVANÇADOS.png.png" alt="Imagem 3" class="zoom">
     </section>
-  </section>
-    <%- include("../partials/footer") %>   
+    <section aria-labelledby="produtos-destaque">
+      <h2 id="produtos-destaque">Economia de energia</h2>
+      <section class="produtos-grid">
+        
+      </section>
+      <section aria-labelledby="Autonomia">
+        <h4 id="Autonomia">Autonomia</h4>
+        <section class="produtos-grid">
+          <!-- ...produtos... -->
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <%- include("../partials/footer") %>
+</body>
     </html>
   
   
