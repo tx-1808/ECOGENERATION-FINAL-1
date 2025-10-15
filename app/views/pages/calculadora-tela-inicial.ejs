@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,22 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora</title>
-  <link rel="stylesheet" href="css/calculadora.css">
-
+  <link rel="stylesheet" href="/css/calculadora.css">
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/footer.css">
-
+ 
 </head>
 
 <body>
   <%- include("../partials/header") %>
 
   <main class="eco-main">
-    <section class="eco-header">
-      <button class="eco-voltar" type="button" onclick="window.history.back()" aria-label="Voltar">&lt;</button>
+    
+     
       <h2 class="eco-header-title">
-        COMO USAR NOSSA <mark class="eco-highlight">CALCULADORA</mark>
+        COMO USAR NOSSA <p class="cordiferente">CALCULADORA</p>
       </h2>
     </section>
 
@@ -33,13 +29,13 @@
 
     <section class="eco-card">
       <h3 class="eco-card-title">
-        <strong class="eco">ECO</strong><b class="calculadora">CALCULADORA</b>
+       <b class="calculadora"><p class="outracor"></p>ECOCALCULADORA</b>
       </h3>
       <form action="/calculadora/perguntas" method="get">
         <button class="eco-btn" type="submit">COMEÇAR</button>
       </form>
     </section>
-     <%- include("../partials/footer") %>
+    <%- include("../partials/footer") %>
   </main>
-
- 
+</body>
+</html>
