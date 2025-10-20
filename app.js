@@ -1,11 +1,12 @@
-const express = require("express");
+const path = require('path');
+const express = require('express');
 const app = express();
 const porta = 3000;
 
-app.use(express.static("./app/public"));
+app.use(express.static(path.join(__dirname, 'app', 'public')));
 
-app.set("view engine", "ejs");
-app.set("views", "./app/views/pages");
+app.set('view engine', 'ejs');
+app.set('views', './app/views/pages');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro</title>
+  <!-- Semantic UI CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" >
+  <link rel="stylesheet" href="css/style.css" >
+</header>
+<body>
+  <body class="layout">
+<header>
+      <img src="imagem/GENERATION.png.svg" alt="Logo do Site" class="logo">
+    </header>
+</body>
+  <main>
+    <h1 class="ui header">Formulário de Cadastro</h1> 
+    <form action="/cadastro" method="post" class="ui form" id="cadastro-form">
+      
+      
+      <label for="nome">Nome Completo</label>
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        value="<%= old.nome ? old.nome : '' %>"
+        placeholder="Digite seu nome completo"
+      />
+      <% if (errors.nome) { %>
+      <section class="ui pointing red basic label"><%= errors.nome.msg %></section>
+      <% } %>
+
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value="<%= old.email ? old.email : '' %>"
+        placeholder="Digite seu e-mail"
+      />
+      <% if (errors.email) { %>
+      <section class="ui pointing red basic label"><%= errors.email.msg %></section>
+      <% } %>
+
+      <label for="senha">Senha</label>
+      <input
+        type="password"
+        id="senha"
+        name="senha"
+        placeholder="Digite sua senha"
+      />
+      <% if (errors.senha) { %>
+      <section class="ui pointing red basic label"><%= errors.senha.msg %></section>
+      <% } %>
+
+      
+
+
+      <label for="dataNascimento">Data de Nascimento</label>
+      <input
+      type="date"
+      id="dataNascimento"
+      name="dataNascimento"
+      value="<%= old.dataNascimento ? old.dataNascimento : '' %>"
+      placeholder="Selecione sua data de nascimento"
+/>
+<% if (errors.dataNascimento) { %>
+<section class="ui pointing red basic label"><%= errors.dataNascimento.msg %></section>
+<% } %>
+
+
+     
+      <button class="ui primary button" type="submit">Cadastrar</button>
+      <button class="ui button" type="reset">Limpar</button>
+    </form>
+  </main>
+<footer> 2025-Ecogeneration </footer>
+  <script src="/js/validation.js"></script>
+  <!-- Semantic UI JS CDN -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script> -->
+</body>
+</html>

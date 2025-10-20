@@ -21,7 +21,8 @@ router.get('/', (req, res) => {
 
 // Rota para renderizar a página de login
 router.get('/login', (req, res) => {
-    res.render('login', { errors: [], formData: {} });
+  // passar objetos vazios evita ReferenceError na view
+  res.render('login', { old: {}, errors: {} });
 });
 
 // Rota para processar o formulário de login
@@ -29,17 +30,20 @@ router.post('/login', [
     body('email').isEmail().withMessage('Por favor, insira um e-mail válido'),
     body('password').isLength({ min: 8 }).withMessage('A senha deve ter pelo menos 8 caracteres')
 ], (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.render('login', {
-            errors: errors.array(),
-            formData: req.body
-        });
-    }
+  // exemplo de validação: se houver erros, re-render com dados e erros
+  // const validationErrors = validar(req.body);
+  // if (validationErrors) return res.render('login', { old: req.body, errors: validationErrors });
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+      return res.render('login', {
+          errors: errors.array(),
+          formData: req.body
+      });
+  }
 
-    // Simulação de sucesso no login (substitua por lógica real, como autenticação)
-    console.log('Login bem-sucedido:', req.body);
-    res.send('Login bem-sucedido!'); // Pode redirecionar ou renderizar outra página
+  // Simulação de sucesso no login (substitua por lógica real, como autenticação)
+  console.log('Login bem-sucedido:', req.body);
+  res.send('Login bem-sucedido!'); // Pode redirecionar ou renderizar outra página
 });
 
 
