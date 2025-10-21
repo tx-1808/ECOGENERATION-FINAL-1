@@ -37,16 +37,20 @@ h1 {
   align-items: center; /* centraliza horizontalmente os campos */
 }
 
-/* empilha os botões de ação (Entrar acima, Limpar abaixo) */
-#cadastro-form p.form-actions {
+/* empilha os botões de ação no formulário de login */
+#login-form p.form-actions {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  flex-direction: column; /* empilha verticalmente */
+  gap: 0.75rem;           /* espaçamento entre botões */
+  align-items: center;    /* centraliza os botões */
   margin: 0;
 }
 
+/* garante que cada botão ocupe linha própria */
 #login-form p.form-actions button {
-  width: 300px; /* mantém largura consistente com os inputs */
+  width: 300px; /* mantém largura consistente */
+  margin-right: 0; /* remove margem lateral */
+  display: block;
 }
 
 #login-form input,
