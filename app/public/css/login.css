@@ -37,6 +37,18 @@ h1 {
   align-items: center; /* centraliza horizontalmente os campos */
 }
 
+/* empilha os botões de ação (Entrar acima, Limpar abaixo) */
+#cadastro-form p.form-actions {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#login-form p.form-actions button {
+  width: 300px; /* mantém largura consistente com os inputs */
+}
+
 #login-form input,
 #login-form select,
 #login-form textarea,

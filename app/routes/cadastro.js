@@ -3,11 +3,11 @@ const { check, validationResult } = require('express-validator');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('pages/cadastro', { errors: {}, old: {} });
+  res.render('cadastro', { errors: {}, old: {} });
 });
 
 router.post(
-  '/cadastro',
+  '/',
   [
     check('nome').notEmpty().withMessage('Nome é obrigatório'),
     check('email').isEmail().withMessage('Email inválido'),
@@ -18,16 +18,12 @@ router.post(
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      const mappedErrors = errors.mapped();
-      return res.render('pages/cadastro', { errors: mappedErrors, old: req.body });
+      // passa erros mapeados para a view (errors.campo.msg)
+      return res.render('cadastro', { errors: errors.mapped(), old: req.body });
     }
-    // Aqui poderia salvar no banco ou processar os dados...
-    res.render('pages/');
+    // TODO: salvar usuário / continuar fluxo
+    res.redirect('/');
   }
-
-  
 );
-
-
 
 module.exports = router;

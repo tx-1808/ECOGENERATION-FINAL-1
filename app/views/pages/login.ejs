@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cadastro</title>
+  <title>Login</title>
   <!-- Semantic UI CDN -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" >
-  <link rel="stylesheet" href="/css/login.css" >
-</header>
-<body>
-  <body class="layout">
-<header>
-      <img src="imagens/GENERATION (1).svg" alt="Logo do Site" class="logo">
-    </header>
-</body>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body class="layout">
+  <header>
+    <img src="/imagens/GENERATION (1).svg" alt="Logo do Site" class="logo">
+  </header>
+
   <main>
-    <h1 class="ui header">Login</h1> 
+    <h1 class="ui header">Login</h1>
     <form action="/login" method="post" class="ui form" id="login-form">
       <label for="email">E-mail</label>
       <input
@@ -28,7 +25,7 @@
         placeholder="Digite seu e-mail"
       />
       <% if (typeof errors !== 'undefined' && errors.email) { %>
-      <section class="ui pointing red basic label"><%= errors.email.msg %></section>
+        <section class="ui pointing red basic label"><%= errors.email.msg %></section>
       <% } %>
 
       <label for="senha">Senha</label>
@@ -39,33 +36,40 @@
         placeholder="Digite sua senha"
       />
       <% if (typeof errors !== 'undefined' && errors.senha) { %>
-      <section class="ui pointing red basic label"><%= errors.senha.msg %></section>
+        <section class="ui pointing red basic label"><%= errors.senha.msg %></section>
       <% } %>
 
-      <button class="ui primary button" type="submit">Enviar</button>
-      <button class="ui button" type="reset">Limpar</button>
+      <p class="form-actions">
+        <button type="submit" class="ui primary button">Entrar</button>
+        <button type="reset" class="ui button" id="limpar-button">Limpar</button>
+      </p>
+
+      <p style="margin-top:1rem; text-align:center;">
+        Não tem uma conta ? <a href="/cadastro">Faça o cadastro</a>
+      </p>
     </form>
   </main>
-<footer> 2025-Ecogeneration </footer>
+
+  <footer>2025 - Ecogeneration</footer>
+
+  <!-- carregar validação front-end (arquivo: app/public/js/validation.js) -->
   <script src="/js/validation.js"></script>
-  <!-- Semantic UI JS CDN -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script> -->
+  <!-- Semantic UI JS (opcional)
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  -->
 </body>
 </html>
 <script>
-
-// Validação front-end para login: email obrigatório e senha mínimo 6 caracteres.
-// Mostra aviso ao mudar de campo (blur) e atualiza em input.
-
 (function () {
   function removeFrontendError(input) {
-    const next = input.nextElementSibling;
+    const next = input && input.nextElementSibling;
     if (next && next.classList && next.classList.contains('frontend')) {
       next.remove();
     }
   }
 
   function showError(input, message) {
+    if (!input) return;
     removeFrontendError(input);
     if (!message) return;
     const errorLabel = document.createElement('section');
@@ -76,33 +80,21 @@
 
   function validateEmail() {
     const input = document.getElementById('email');
-    if (!input) return true;
+    if (!input) return false;
     const v = input.value.trim();
-    if (!v) {
-      showError(input, 'E-mail é obrigatório.');
-      return false;
-    }
+    if (!v) { showError(input, 'E-mail é obrigatório.'); return false; }
     const re = /^\S+@\S+\.\S+$/;
-    if (!re.test(v)) {
-      showError(input, 'E-mail inválido.');
-      return false;
-    }
+    if (!re.test(v)) { showError(input, 'E-mail inválido.'); return false; }
     removeFrontendError(input);
     return true;
   }
 
   function validateSenha() {
     const input = document.getElementById('senha');
-    if (!input) return true;
+    if (!input) return false;
     const v = input.value.trim();
-    if (!v) {
-      showError(input, 'Senha deve ter no mínimo 6 caracteres.');
-      return false;
-    }
-    if (v.length < 6) { // validação: mínimo 6 caracteres
-      showError(input, 'Senha deve ter no mínimo 6 caracteres.');
-      return false;
-    }
+    if (!v) { showError(input, 'Senha deve ter no mínimo 6 caracteres.'); return false; }
+    if (v.length < 6) { showError(input, 'Senha deve ter no mínimo 6 caracteres.'); return false; }
     removeFrontendError(input);
     return true;
   }
@@ -110,8 +102,8 @@
   function addListeners(id, fn) {
     const el = document.getElementById(id);
     if (!el) return;
-    el.addEventListener('blur', fn);   // mostra aviso ao sair do campo
-    el.addEventListener('input', fn);  // atualiza enquanto digita
+    el.addEventListener('blur', fn);
+    el.addEventListener('input', fn);
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -127,7 +119,13 @@
       const okSenha = validateSenha();
       if (!okEmail || !okSenha) {
         ev.preventDefault();
+        if (!okEmail) document.getElementById('email').focus();
+        else document.getElementById('senha').focus();
+        return;
       }
+      // campos válidos: prevenir envio ao servidor e redirecionar para a página inicial
+      ev.preventDefault();
+      window.location.href = '/';
     });
   });
 })();

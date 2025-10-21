@@ -14,6 +14,9 @@ app.use(express.urlencoded({extended:true}));
 const rota = require("./app/routes/router");
 app.use("/", rota);
 
+const cadastroRouter = require('./app/routes/cadastro');
+app.use('/cadastro', cadastroRouter);
+
 app.listen(porta, ()=>{
     console.log(`Servidor online!\n http://localhost:${porta}`);
 })
