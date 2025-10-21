@@ -4,83 +4,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  
+  <link rel="stylesheet" href="/css/intermediario.css">
+  <title>Eco Loja</title>
 </head>
 
 <body>
-  
- <header>
 
-  <figure class="logo-figure">
-    <img src="GENERATION (1).svg" alt="EcoGeneration Logo" class="logo">
-    <figcaption class="visually-hidden"></figcaption>
-  </figure>
-
-  <form action="/search" method="get" class="search-form">
-    <input type="text" name="q" placeholder="Pesquisar...">
-    <button type="submit"> Buscar</button>
-  </form>
-</header>
-
+<%- include("../partials/header") %>
 
 <p class="eco_loja">
   <b class="eco">ECO</b><b class="loja">LOJA</b>
 </p>
+
 <section aria-labelledby="produtos-destaque">
   <h2 id="produtos-destaque"></h2>
 
   <section class="produtos-grid">
     <article>
       <img src="imagens/estaçaodeenergiaportatil.png" alt="Estação de Energia Portátil">
-      <h3>Estação de Energia Portátil </h3>
+      <h3>Estação de Energia Portátil</h3>
+      <button class="btn-comprar">COMPRAR</button>
     </article>
 
     <article>
-      <img src="imagens/powerbankcomdiversassaidas.png" alt="Power Bank Com Diversas Saídas">
-      <h3>Power Bank Com Diversas Saídas</h3>
+      <img src="imagens/powerbankcomdiversassaidas.png" alt="Power Bank com Diversas Saídas">
+      <h3>Power Bank com Diversas Saídas</h3>
+      <button class="btn-comprar">COMPRAR</button>
     </article>
 
     <article>
       <img src="imagens/ventiladorportatil.png" alt="Ventilador Portátil">
       <h3>Ventilador Portátil</h3>
+      <button class="btn-comprar">COMPRAR</button>
     </article>
 
     <article>
       <img src="imagens/painelsolardobravel.png" alt="Painel Solar Dobrável">
       <h3>Painel Solar Dobrável</h3>
+      <button class="btn-comprar">COMPRAR</button>
     </article>
-    
+
+    <article>
+      <img src="imagens/painelsolardobravelcomarmazenadordeenergia.png" alt="Painel Solar Dobrável com Armazenador de Energia">
+      <h3>Painel Solar Dobrável com Armazenador de Energia</h3>
+      <button class="btn-comprar">COMPRAR</button>
+    </article>
+
+    <article>
+      <img src="imagens/lampadaledddd.png" alt="Lâmpada LED KIT 20 UNI">
+      <h3>Lâmpada LED KIT 20 UNI</h3>
+      <button class="btn-comprar">COMPRAR</button>
+    </article>
   </section>
+</section>
 
-  <section aria-labelledby="Autonomia">
-    <h4 id="Autonomia"></h4>
-    
-    <section class="produtos-grid">
-      <article>
-        <img src="imagens/painelsolardobravelcomarmazenadordeenergia.png" alt="Painel Solar Dobrável com Armazenador de Energia">
-        <h3>Painel Solar Dobrável com Armazenador de Energia</h3>
-      </article>
-
-      <article>
-        <img src="imagens/inversordomestico.png" alt="Inversor Doméstico">
-        <h3>Inversor Doméstico</h3>
-      </article>
-
-      </article>
-    </section>
-  </section>
-
-  <footer>
-    <p>© EcoGeneration.</p>
-    <p><a href="#">Termos de Serviço</a> | <a href="#">Privacidade</a></p>
+<footer>
+  <p>© EcoGeneration.</p>
+  <p><a href="#">Termos de Serviço</a> | <a href="#">Privacidade</a></p>
 </footer>
-  
-  
 
-
-
-
-
-   
-
+</body>
+</html>
